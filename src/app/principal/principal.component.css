@@ -1,0 +1,32 @@
+
+/*.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    width: 600px;
+    height: 400px;
+    border: 1px solid #ccc;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 200px;
+    margin-left: 500px;
+}
+
+p {
+    width: 50%;
+    margin-left: 150px;
+}
+
+button {
+    margin-left: 250px;
+}*/
+
+.img-fluid{
+
+    margin-top: 40px;
+    margin-left: 40px;
+}
