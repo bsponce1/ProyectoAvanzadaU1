@@ -2,21 +2,32 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 //importar
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { ProductFormComponent } from './product-form/product-form.component';
-import { FormComponentComponent } from './form-component/form-component.component';
 import { RecaptchaModule } from 'ng-recaptcha';
-import { HttpClientModule } from '@angular/common/http';
-//import { FormComponent2Component } from './form-component2/form-component2.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormularioAlquilerComponent } from './components/formulario-alquiler/formulario-alquiler.component';
+import { LoginComponent } from './components/login/login.component';
+import { SolicitudesF1Component } from './components/solicitudes-f1/solicitudes-f1.component';
+import { SolicitudesF2Component } from './components/solicitudes-f2/solicitudes-f2.component';
+import { SubirReciboComponent } from './components/subir-recibo/subir-recibo.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { IsAuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-   
-    FormComponentComponent
+    FormularioAlquilerComponent,
+    LoginComponent,
+    SolicitudesF1Component,
+    SolicitudesF2Component,
+    SubirReciboComponent,
+    SignupComponent,
+    SigninComponent
     
   ],
   imports: [
@@ -24,9 +35,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     RecaptchaModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

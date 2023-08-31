@@ -1,0 +1,143 @@
+
+
+<div class="contenedor">
+    
+    <form (ngSubmit)="save($event)" [formGroup]="form">
+        <div class="columna">
+            <h1>Formulario de Alquiler de Bicicletas</h1>
+            
+            <div>
+                <label>Nombres y Apellidos*:</label>
+                <input type="text" formControlName="name">
+                <p>
+                    <small *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+
+            <div>
+                <label>Telefono*:</label>
+                <input type="text" formControlName="telefono">
+                <p>
+                    <small *ngIf="form.get('telefono')?.hasError('required') && form.get('telefono')?.touched">
+                        El campo es obligatorio
+                    </small>
+
+                    <small *ngIf="form.get('telefono')?.hasError('pattern') && form.get('telefono')?.touched">
+                        Solo debes ingresar numeros
+                    </small>
+
+                    <small *ngIf="form.get('telefono')?.hasError('minlength') && form.get('telefono')?.touched">
+                        Necesitas 10 digitos
+                    </small>
+
+                    <small *ngIf="form.get('telefono')?.hasError('maxlength') && form.get('telefono')?.touched">
+                        Te pasaste de los 10 digitos
+                    </small>
+                </p>
+            </div>
+
+            <div>
+                <label>Fecha de Alquiler*:</label>
+                <input type="date" formControlName="date">
+                <p>
+                    <small *ngIf="form.get('date')?.hasError('required') && form.get('date')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+
+            <div>
+                <label>Direccion*:</label>
+                <select formControlName="ciudad">
+                    <option value="Quito">Quito</option>
+                    <option value="Guayaquil">Guayaquil</option>
+                    <option value="Santo Domingo">Santo</option>
+                </select>
+                <p>
+                    <small *ngIf="form.get('ciudad')?.hasError('required') && form.get('ciudad')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+
+            
+        </div>
+
+
+        <div class="columna">
+            <div>
+                <label>Correo Electronico*:</label>
+                <input type="text" formControlName="email">
+                <p>
+                    <small *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+                        El campo es obligatorio
+                    </small>
+
+                    <small *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
+                        Introduce un correo válido
+                    </small>
+
+                    <small *ngIf="form.get('email')?.hasError('pattern') && form.get('email')?.touched">
+                        El correo no es valido
+                    </small>
+                </p>
+            </div>
+
+
+
+            <div>
+                <label>Tipo de Bicicletas*:</label>
+                            
+                <div>
+                    <label>Normal = $40</label>
+                    <input class="radio" type="radio" name="tipo" formControlName="tipo" value="normal">
+                </div>
+                <div>
+                    <label>Montañera =$60</label>
+                    <input class="radio" type="radio" name="tipo" formControlName="tipo" value="montañera">
+                </div>
+                <div>
+                    <label>Otro =$40</label>
+                    <input class="radio" type="radio" name="tipo" formControlName="tipo" value="Otro">
+                </div>
+                <p>
+                    <small *ngIf="form.get('tipo')?.hasError('required') && form.get('tipo')?.touched">
+                        El campo es obligatorio
+                    </small>
+                </p>
+            </div>
+               
+
+
+
+            <div>
+                <label>Observaciones:</label>
+                <textarea cols="25" rows="5" formControlName="observacion"></textarea>
+                <p class="validacion_biografia">
+                    <small *ngIf="form.get('observacion')?.hasError('required') && form.get('observacion')?.touched">
+                        El campo es obligatorio
+                    </small>
+
+                    <small *ngIf="form.get('observacion')?.hasError('minlength') && form.get('observacion')?.touched">
+                        Necesitas minimo 10 caracteres
+                    </small>
+                </p>
+            </div>
+        </div>
+       
+        <div class="contenedor_capcha">
+            <div class="capcha">
+                <re-captcha (resolved)="resolved($event)"
+                    siteKey="6LdXWWcmAAAAAEBzP7kGaFJvNOUw6wJL7RGc6o4e"></re-captcha>
+            </div>
+        </div>
+
+        <div class="contenedor_boton">
+            <button   [disabled]="form.invalid || !captchaValid" type="submit" >ENVIAR</button>
+        </div>
+
+    </form>
+
+</div>
