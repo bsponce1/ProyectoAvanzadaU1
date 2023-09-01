@@ -1,11 +1,7 @@
-
-
 <div class="contenedor">
-    
     <form (ngSubmit)="save($event)" [formGroup]="form">
         <div class="columna">
-            <h1>Formulario de Alquiler de Bicicletas</h1>
-            
+            <h1 class="titulo">LLene el formulario de Alquiler de Bicicletas</h1>
             <div>
                 <label>Nombres y Apellidos*:</label>
                 <input type="text" formControlName="name">
@@ -53,7 +49,7 @@
                 <select formControlName="ciudad">
                     <option value="Quito">Quito</option>
                     <option value="Guayaquil">Guayaquil</option>
-                    <option value="Santo Domingo">Santo</option>
+                    <option value="Santo Domingo">Santo Domingo</option>
                 </select>
                 <p>
                     <small *ngIf="form.get('ciudad')?.hasError('required') && form.get('ciudad')?.touched">
@@ -114,6 +110,7 @@
 
             <div>
                 <label>Observaciones:</label>
+                <br>
                 <textarea cols="25" rows="5" formControlName="observacion"></textarea>
                 <p class="validacion_biografia">
                     <small *ngIf="form.get('observacion')?.hasError('required') && form.get('observacion')?.touched">

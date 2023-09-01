@@ -1,24 +1,37 @@
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+.titulo{
+    color: #023b6d;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 .contenedor {
     max-width: 500px;
     margin: 0 auto;
-    border: 2px solid rgb(13, 85, 145);
-      
-     
+    border: 4px groove #ccc;
     padding: 20px;
+    margin-top: 50px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
 }
 
 input[type="text"],
 input[type="date"],
 select {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     margin-bottom: 10px;
+    border: 1px solid #bdc3c7; /* Color del borde */
+    background-color: #ecf0f1; /* Color de fondo de entrada de texto */
 }
 
 .radio {
@@ -36,6 +49,7 @@ p {
 .capcha label {
     display: block;
     margin-bottom: 10px;
+    color: #3498db; /* Color para etiquetas */
 }
 
 .contenedor_boton {
@@ -45,8 +59,8 @@ p {
 
 button {
     padding: 10px 20px;
-    background-color: #ffffff;
-    color: white;
+    background-color: #418e2c; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
     border: none;
     cursor: pointer;
 }
@@ -61,36 +75,9 @@ button:disabled {
     font-size: 12px;
 }
 
-label {
-    color: rgb(158, 98, 24);
-  }
-
-  input[type="text"] {
-    float: left;
-    background-color: #f2d8cf;
-    border: none;
-    padding: 10px;
-    margin-right: 10px;
-  }
-  input[type="date"] {
-    float: left;
-    background-color: #e6ef86;
-    border: none;
-    padding: 10px;
-    margin-right: 10px;
-  }
-  
-  
-  /* Limpiar el float después de los inputs */
-  .contenedor input[type="text"]:last-child {
+/* Color de fondo de los últimos campos de entrada para evitar que floten */
+.contenedor input[type="text"]:last-child,
+.contenedor input[type="date"]:last-child {
     float: none;
     clear: both;
-  }
-
-
-
-  select {
-    background-color: #f2d8cf;
-    border: none;
-    padding: 10px;
-  }
+}

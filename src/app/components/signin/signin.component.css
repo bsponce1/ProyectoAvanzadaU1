@@ -1,6 +1,6 @@
 /* Estilos para el fondo y el formulario */
 body {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
     font-family: Arial, sans-serif;
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .forgot-password a {
-    color: #007bff;
+    color: #419836;
     text-decoration: none;
 }
 
